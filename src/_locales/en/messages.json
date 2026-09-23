@@ -233,5 +233,35 @@
    },
    "w_url": {
       "message": "URL"
+   },
+   "issue_block_order": {
+      "message": "Stop!(Block) is applied even when a rule above it matches."
+   },
+   "issue_default_shadow": {
+      "message": "Browser's default value cannot stop the rules below it in Manifest V3, they may still apply."
+   },
+   "issue_invalid_regex": {
+      "message": "Invalid regular expression. This rule is ignored."
+   },
+   "issue_regex_unsupported": {
+      "message": "The browser does not support this regular expression (RE2 syntax). This rule is ignored."
+   },
+   "issue_referer": {
+      "message": "Referer conditions cannot be checked in Manifest V3. This rule is ignored."
+   },
+   "issue_rejected": {
+      "message": "The browser rejected this rule. This rule is ignored."
+   },
+   "issue_request_variable": {
+      "message": "Variables that depend on the request ({url}, {host}, {path}, ...) are not supported in Manifest V3. This rule is ignored."
+   },
+   "issue_result_variable": {
+      "message": "{result:...} from a RegExp condition is not supported in Manifest V3. This rule is ignored."
+   },
+   "issue_url_combination": {
+      "message": "These URL conditions cannot be combined into one filter in Manifest V3. This rule is ignored."
+   },
+   "issue_url_inverted": {
+      "message": "NOT on a URL condition is not supported in Manifest V3. This rule is ignored."
    }
 }

@@ -233,5 +233,35 @@
    },
    "w_url": {
       "message": "URL"
+   },
+   "issue_block_order": {
+      "message": "即使上方的规则已匹配，中断请求仍会生效。"
+   },
+   "issue_default_shadow": {
+      "message": "在 Manifest V3 中，“浏览器默认值”无法阻止下方的规则，它们仍可能生效。"
+   },
+   "issue_invalid_regex": {
+      "message": "正则表达式无效。此规则将被忽略。"
+   },
+   "issue_regex_unsupported": {
+      "message": "浏览器不支持此正则表达式（RE2 语法）。此规则将被忽略。"
+   },
+   "issue_referer": {
+      "message": "Manifest V3 无法检查 Referer 条件。此规则将被忽略。"
+   },
+   "issue_rejected": {
+      "message": "浏览器拒绝了此规则。此规则将被忽略。"
+   },
+   "issue_request_variable": {
+      "message": "Manifest V3 不支持依赖请求的变量（{url}、{host}、{path} 等）。此规则将被忽略。"
+   },
+   "issue_result_variable": {
+      "message": "Manifest V3 不支持来自正则条件的 {result:...}。此规则将被忽略。"
+   },
+   "issue_url_combination": {
+      "message": "Manifest V3 无法将这些 URL 条件合并为一个过滤器。此规则将被忽略。"
+   },
+   "issue_url_inverted": {
+      "message": "Manifest V3 不支持对 URL 条件取反（NOT）。此规则将被忽略。"
    }
 }

@@ -1,4 +1,5 @@
 import { $, Tabs, addOption, animate, selectOption, sendMessage, showAlert, translate } from './uniscript.js';
+import { compileRules } from './lib/rules.js';
 
 const headerNameData = [
   'Accept',
@@ -55,6 +56,10 @@ const methodOptions = [
 
 const newCondition = () => ({ where: 'url', method: 'include', value: '', inv: false });
 
+const runtimeIssueCodes = new Set(['regex_unsupported', 'rejected']);
+
+const issueMessage = ({ code }) => translate(`issue_${code}`);
+
 let headers = [];
 let currentHeader = -1;
 let currentRule = { value: 0, input: null };
@@ -64,9 +69,40 @@ let headerContainer;
 let detailTabs;
 let optionsHidden = true;
 let saveNoticed = false;
+let runtimeIssues = [];
 
 const currentAutoRules = () => headers[currentHeader].auto;
 const selectedAutoRule = () => currentAutoRules()[currentRule.value];
+
+function setRuntimeIssues(issues = []) {
+  runtimeIssues = issues.filter(({ code }) => runtimeIssueCodes.has(code));
+}
+
+function renderIssues() {
+  const header = headers[currentHeader];
+  if (!header) return;
+  const issues = [...compileRules(headers).issues, ...runtimeIssues].filter(
+    ({ header: name, rule }) => name === header.name && rule !== null,
+  );
+
+  [...ruleList.children].forEach((input, index) => {
+    const messages = issues.filter(({ rule }) => rule === index).map(issueMessage);
+    input.classList.toggle('ar_unsupported', messages.length > 0);
+    input.title = messages.join('\n');
+  });
+
+  const selected = issues.filter(({ rule }) => rule === currentRule.value);
+  const box = $('ar_issues');
+  box.replaceChildren(
+    ...[...new Set(selected.map(issueMessage))].map((message) =>
+      Object.assign(document.createElement('div'), { textContent: message }),
+    ),
+  );
+  box.style.display = selected.length > 0 ? '' : 'none';
+  [...$('ar_conidition').children].forEach((item, index) => {
+    item.classList.toggle('condition_unsupported', selected.some(({ condition }) => condition === index));
+  });
+}
 
 function thingsChanged() {
   if (!saveNoticed) {
@@ -74,6 +110,7 @@ function thingsChanged() {
     showAlert(translate('noticeSave'));
   }
   $('save').classList.add('save_waiting');
+  renderIssues();
 }
 
 function keepingScroll(action) {
@@ -95,7 +132,10 @@ function onSaveReplied(response) {
 
 async function save() {
   $('save').disabled = true;
-  onSaveReplied(await sendMessage({ method: 'push', data: headers }));
+  const response = await sendMessage({ method: 'push', data: headers });
+  setRuntimeIssues(response?.issues);
+  onSaveReplied(response);
+  renderIssues();
 }
 
 async function pushConfig() {
@@ -257,6 +297,7 @@ function renderRuleDetails() {
   const rule = selectedAutoRule();
   $('ar_value').value = rule.value;
   $('ar_conidition').replaceChildren(...rule.condition.map(createConditionItem));
+  renderIssues();
 }
 
 function onHeaderRename(input, index) {
@@ -521,7 +562,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   toggleUtils();
   toggleOptions();
 
-  const { headers: loaded, config } = await sendMessage({ method: 'pull', source: 'config' });
+  const { headers: loaded, config, issues } = await sendMessage({ method: 'pull', source: 'config' });
+  setRuntimeIssues(issues);
   showHeaders(loaded);
   $('c_sync').checked = config.sync;
   $('c_keepvalue').checked = config.keepvalue;

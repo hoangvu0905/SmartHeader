@@ -22,6 +22,7 @@ const serialize = (task) => {
 
 async function apply(headers, values) {
   const outcome = await applyRules(headers, values);
+  await chrome.storage.session.set({ rule_issues: outcome.issues });
   if (!outcome.volatile) await chrome.alarms.clear(REFRESH_ALARM);
   else if (!(await chrome.alarms.get(REFRESH_ALARM))) {
     await chrome.alarms.create(REFRESH_ALARM, { periodInMinutes: 0.5 });
@@ -39,7 +40,10 @@ const isManualIssueOf = (key) => (issue) => issue.rule === null && issue.header.
 const handlers = {
   async pull({ source }) {
     const { config, headers, values } = await loadState();
-    if (source === 'config') return { result: true, headers, config };
+    if (source === 'config') {
+      const { rule_issues: issues = [] } = await chrome.storage.session.get('rule_issues');
+      return { result: true, headers, config, issues };
+    }
     if (source === 'popup') {
       const data = {};
       for (const [key, value] of Object.entries(values)) {
