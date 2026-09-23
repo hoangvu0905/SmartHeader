@@ -1,5 +1,16 @@
 import { applyRules, clearRules } from './lib/apply.js';
-import { clearAll, loadState, normalizeValues, saveConfig, saveValues, store } from './lib/state.js';
+import {
+  SYNC_ALARM,
+  clearAll,
+  flushPendingSync,
+  loadState,
+  normalizeValues,
+  saveConfig,
+  saveValues,
+  store,
+} from './lib/state.js';
+
+const REFRESH_ALARM = 'refresh-rules';
 
 let queue = Promise.resolve();
 
@@ -9,9 +20,18 @@ const serialize = (task) => {
   return run;
 };
 
+async function apply(headers, values) {
+  const outcome = await applyRules(headers, values);
+  if (!outcome.volatile) await chrome.alarms.clear(REFRESH_ALARM);
+  else if (!(await chrome.alarms.get(REFRESH_ALARM))) {
+    await chrome.alarms.create(REFRESH_ALARM, { periodInMinutes: 0.5 });
+  }
+  return outcome;
+}
+
 async function refresh() {
   const { headers, values } = await loadState();
-  return applyRules(headers, values);
+  return apply(headers, values);
 }
 
 const isManualIssueOf = (key) => (issue) => issue.rule === null && issue.header.toLowerCase() === key;
@@ -36,7 +56,7 @@ const handlers = {
     const nextValues = normalizeValues(headers, values);
     await store({ headers }, config);
     await saveValues(nextValues, config);
-    const { issues } = await applyRules(headers, nextValues);
+    const { issues } = await apply(headers, nextValues);
     return { result: true, issues };
   },
 
@@ -52,11 +72,12 @@ const handlers = {
     const key = which.toLowerCase();
     values[key] = value;
     await saveValues(values, config);
-    const { issues } = await applyRules(headers, values);
+    const { issues } = await apply(headers, values);
     return { result: !issues.some(isManualIssueOf(key)), which };
   },
 
   async factoryreset() {
+    await chrome.alarms.clearAll();
     await clearRules();
     await clearAll();
     chrome.runtime.reload();
@@ -86,3 +107,8 @@ chrome.runtime.onInstalled.addListener(async ({ reason }) => {
 });
 
 chrome.runtime.onStartup.addListener(() => serialize(refresh));
+
+chrome.alarms.onAlarm.addListener(({ name }) => {
+  if (name === REFRESH_ALARM) serialize(refresh);
+  if (name === SYNC_ALARM) serialize(flushPendingSync);
+});

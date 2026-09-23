@@ -1,12 +1,39 @@
 import { AUTO } from './rules.js';
 import { DEFAULT_CONFIG, createDefaultHeaders } from './defaults.js';
 
-async function writeSync(items) {
+export const SYNC_ALARM = 'flush-sync';
+const SYNC_INTERVAL = 60000;
+
+async function flush(items) {
+  await chrome.storage.session.set({ sync_last: Date.now() });
+  await chrome.storage.session.remove('sync_pending');
   try {
     await chrome.storage.sync.set(items);
   } catch (error) {
     console.warn('Smart Header: sync storage rejected the write', error);
   }
+}
+
+async function writeSync(items) {
+  const { sync_pending: pending = {}, sync_last: last = 0 } = await chrome.storage.session.get([
+    'sync_pending',
+    'sync_last',
+  ]);
+  const merged = { ...pending, ...items };
+  if (Date.now() - last >= SYNC_INTERVAL) {
+    await flush(merged);
+    return;
+  }
+  await chrome.storage.session.set({ sync_pending: merged });
+  await chrome.alarms.create(SYNC_ALARM, { when: last + SYNC_INTERVAL });
+}
+
+export async function flushPendingSync() {
+  const { sync_pending: pending } = await chrome.storage.session.get('sync_pending');
+  if (!pending) return;
+  const config = await loadConfig();
+  if (config.sync) await flush(pending);
+  else await chrome.storage.session.remove('sync_pending');
 }
 
 export async function store(items, config) {
