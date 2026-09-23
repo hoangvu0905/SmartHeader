@@ -1,0 +1,237 @@
+{
+   "ARGuide1": {
+      "message": "Modify this header's value to: "
+   },
+   "ARGuide2": {
+      "message": "When meet ALL OF These conditions: "
+   },
+   "ARSortWarning": {
+      "message": "The priority order of your AutoRules will be affected. Continue?"
+   },
+   "AboutPage": {
+      "message": "About \"Smart Header\""
+   },
+   "Add": {
+      "message": "Add"
+   },
+   "AddAutoRule": {
+      "message": "Create"
+   },
+   "Author": {
+      "message": "Author"
+   },
+   "AuthorBlog": {
+      "message": "Author Blog"
+   },
+   "AutoRule": {
+      "message": "Automatic Rules"
+   },
+   "Automatic": {
+      "message": "Automatic"
+   },
+   "Blank": {
+      "message": "Blank"
+   },
+   "Block": {
+      "message": "Stop!(Block)"
+   },
+   "BrowserDefault": {
+      "message": "Browser's default value"
+   },
+   "Config": {
+      "message": "Configure"
+   },
+   "ConfigPage": {
+      "message": "Configuration Center"
+   },
+   "Delete": {
+      "message": "Delete"
+   },
+   "GetStarted": {
+      "message": "Get Started"
+   },
+   "GetStarted1": {
+      "message": "Choose one header on the left to edit its preset values and automatic rules."
+   },
+   "GetStarted2": {
+      "message": "Or maybe you need advanced options ... at the corner."
+   },
+   "InputValue": {
+      "message": "Edit value manually"
+   },
+   "PresetValues": {
+      "message": "Presets & Other"
+   },
+   "Remove": {
+      "message": "Remove"
+   },
+   "Save": {
+      "message": "Save"
+   },
+   "Sort": {
+      "message": "Sort"
+   },
+   "SpecialThanks": {
+      "message": "Special Thanks"
+   },
+   "Value": {
+      "message": "Value"
+   },
+   "a_feedback": {
+      "message": "Feedback"
+   },
+   "a_onlinehelp": {
+      "message": "Manual"
+   },
+   "a_rate": {
+      "message": "Rate"
+   },
+   "a_test": {
+      "message": "Test"
+   },
+   "add_condition": {
+      "message": "Add one condition"
+   },
+   "ar_test_title": {
+      "message": "AutoRule Example: Works on [Help»Test]"
+   },
+   "c_back2head": {
+      "message": "Back"
+   },
+   "c_cloud_msg": {
+      "message": "Notice: options shown right now can only be stored in local storage."
+   },
+   "c_cloudstorage": {
+      "message": "Sync my configuration using Chrome Sync"
+   },
+   "c_datastorage": {
+      "message": "Data Storage"
+   },
+   "c_exporter": {
+      "message": "Master Mode"
+   },
+   "c_exporter_msg": {
+      "message": "You can export&amp;import headers and auto rules here."
+   },
+   "c_factoryreset": {
+      "message": "Factory Reset (local&amp;cloud)"
+   },
+   "c_factoryreset_msg": {
+      "message": "You're about to remove all data. Continue?"
+   },
+   "c_keepvalue": {
+      "message": "Keep headers' values when I restart Chrome"
+   },
+   "c_save": {
+      "message": "Apply"
+   },
+   "c_wipecloud": {
+      "message": "Wipe out the data in cloud"
+   },
+   "c_wipecloud_msg": {
+      "message": "I cannot guarantee whether Google will really wipe out the data, but I'll try the API."
+   },
+   "cfgHelp": {
+      "message": "Help"
+   },
+   "cfgOptions": {
+      "message": "Options"
+   },
+   "cfgUtils": {
+      "message": "Utils"
+   },
+   "condNumExplain": {
+      "message": "\u003Cdiv class=condNumExplain>Designed for \u003Ca target='_blank' href='http://note.laobubu.net/archives/chrome-smart-header-manual/#armv'>magic variables &raquo;\u003C/a>\u003C/div>"
+   },
+   "confirmDiscardData": {
+      "message": "Closing before clicking [Save] button might lose your new configuration."
+   },
+   "delete_this_header": {
+      "message": "Delete this header"
+   },
+   "delete_this_rule": {
+      "message": "Delete this automatic rule"
+   },
+   "extDesc": {
+      "message": "Modify or change http request headers smartly and automatically."
+   },
+   "extName": {
+      "description": "Extension name",
+      "message": "Smart Header"
+   },
+   "headers_avaliable": {
+      "message": "Headers"
+   },
+   "i18n_required": {
+      "message": ""
+   },
+   "inputHeaderName": {
+      "message": "Input the name of new header"
+   },
+   "invtag": {
+      "message": "NOT"
+   },
+   "m_equal": {
+      "message": "Equal"
+   },
+   "m_equal_ci": {
+      "message": "Equal(Case-Insensive)"
+   },
+   "m_include": {
+      "message": "Include"
+   },
+   "m_include_ci": {
+      "message": "Include(Case-Insensive)"
+   },
+   "m_regex": {
+      "message": "RegExp match"
+   },
+   "m_regex_ci": {
+      "message": "RegExp(Case-Insensive)"
+   },
+   "noticeDuplicate": {
+      "message": "Duplicated header FOUND!"
+   },
+   "noticeInvalid": {
+      "message": "Invalid input."
+   },
+   "noticeSave": {
+      "message": "Remember to save your changes by clicking the [Save] button →"
+   },
+   "noticeSaveFailed": {
+      "message": "Failed to save. Please try again."
+   },
+   "noticeSaved": {
+      "message": "Changes are saved."
+   },
+   "st_donator": {
+      "message": "Donor: Zhou Huaxiang, Zhang Haoyuan. \u003Ca href='http://laobubu.net/donate.html?ref=smartheader'>Buy me a coffee&raquo;\u003C/a>"
+   },
+   "st_icon": {
+      "message": "The web button icons by \u003Ca href=\"http://linhpham.me/miu/\">http://linhpham.me/miu/\u003C/a>"
+   },
+   "st_tester": {
+      "message": "Amanda from California, Andreas Brunsmann, \u003Ca href=\"http://twitter.com/owocat\">@OwOCat\u003C/a>, \u003Ca href=\"http://1a23.com\">blueset\u003C/a>, Jason Trahan, AbiusX, ca_huy, David Tan, Ryan McGinty, Lagoon Wish, \u003Ca href=\"http://weibo.com/u/2219368650\">@小龅牙的我\u003C/a>, skotak29, popokcn, YuiMitsuki, YOU and EVERY USERS! :)"
+   },
+   "util_ci": {
+      "message": "ignoreCase"
+   },
+   "util_hide": {
+      "message": "Hide Utils"
+   },
+   "util_regex": {
+      "message": "RegExp"
+   },
+   "w_method": {
+      "message": "Method"
+   },
+   "w_referer": {
+      "message": "Referer"
+   },
+   "w_type": {
+      "message": "Req Type"
+   },
+   "w_url": {
+      "message": "URL"
+   }
+}

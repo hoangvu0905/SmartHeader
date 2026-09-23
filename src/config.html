@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+<title>ConfigPage</title>
+<script src="uniscript.js"></script>
+<script src="config.js"></script>
+<link href="css/unistyle.css" rel="stylesheet" type="text/css">
+<link href="css/config.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="bigpage_main">
+<table width="100%" id="cfg_whole" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="1" colspan="2">
+  <div id="cfg_top_savebtn_container">
+  <button id="save"><span tid="Save">Save</span></button><br>
+  <span tid="cfgUtils" id="cfgUtils">Utils</span>  / 
+  <span tid="cfgOptions" id="cfgOptions">OPT</span>  / 
+  <span tid="cfgHelp" id="cfgHelp">HELP</span>
+  </div>
+  <div id="cfg_top_utils">
+  <div class="tabs" align="right">
+  <span tid="util_regex" id="util1" class="tab current">REGEXP</span><span tid="util_hide" id="utilHide" class="tab">util_hide</span> 
+  </div>
+  <div id="util1c">
+  <input placeholder="pattern" id="util_pattern"><br>
+  <input placeholder="data" id="util_test"><label><input id="util_ci" type="checkbox"><span tid="util_ci">CI</span></label><br><span id="util_result1"></span>
+  </div>
+  </div>
+  <h1 style="margin:0!important"><span tid="ConfigPage">Configure. Center</span></h1>
+  </td>
+  </tr>
+  <tr id="cfgWhole2">
+   <td colspan="2" valign="top">
+   <div class="cfgFloatBlock">
+   <h2><span tid="c_datastorage">c_datastorage</span></h2>
+   <p><span tid="c_cloud_msg">c_cloud_msg</span></p>
+   <p><label><input type="checkbox" id="c_sync"><span tid="c_cloudstorage">c_cloudstorage</span></label></p>
+   <p><label><input type="checkbox" id="c_keepvalue"><span tid="c_keepvalue">c_keepvalue</span></label></p>
+   <p><button id="c_factoryreset"><span tid="c_factoryreset">c_factoryreset</span></button></p>
+   <p><button id="c_wipecloud"><span tid="c_wipecloud">c_wipecloud</span></button></p>
+   </div>
+   <div class="cfgFloatBlock">
+   <h2><span tid="c_exporter">c_exporter</span></h2>
+   <span tid="c_exporter_msg">c_exporter_msg</span><br>
+   <textarea id="rawdata" spellcheck="false"></textarea><br>
+   <button id="rawload">Load</button> 
+   <button id="rawwrite">Write</button> 
+   <button id="rawmix">Mix(beta)</button> 
+   </div>
+   <div class="cfgFloatBlock" align="center">
+   <img class="imgbtn" id="cBack" src="images/back.png"><br>
+	<span tid='c_back2head'>c_back2head</span>
+   </div>
+   <div class="cfgFloatBlock" align="center">
+   <img class="imgbtn" id="cSave" src="images/save.png"><br>
+	<span tid='c_save'>c_save</span>
+   </div>
+   </td>
+  </tr>
+  <tr id="cfgWhole1">
+    <td width="30%" nowrap height="100%"><div id="cfg_headerlist">
+<div class="list">
+<div align="center" class="head"><span tid="headers_avaliable">Headers</span></div>
+<div id="header_container" class="container">
+<input class="item" value="Accept">
+</div>
+<div align="center" class="foot"><img class="imgbtn" id="btnAddHeader" src="images/add.png"></div>
+<datalist id="header-name-data"></datalist>
+</div>
+</div></td>
+    <td height="100%">
+<div id="cfg_headerdetail">
+<div class="tabs">
+<div id="tab1" class="tab current"><span tid="PresetValues">Presets</span></div>
+<div id="tab2" class="tab"><span tid="AutoRule">AutoRule</span></div>
+</div>
+<div id="autorules">
+<div id="autorule">
+	<div id="artool"><img id="ardel" src="images/delete.png"></div>
+	<div id="arlist"></div>
+	<div id="araction">
+		<a id="aract_add"><span tid="AddAutoRule"></span></a>
+		<a id="aract_sort"><span tid="Sort"></span></a>
+	</div>
+</div>
+<div id="ar_condition_details">
+<p><span tid="ARGuide1" style="color:#999">new value is</span></p>
+<p><input id="ar_value" spellcheck="false" list="headervaluedata"></p>
+<p><span tid="ARGuide2" style="color:#999">When...</span></p>
+<div id="ar_conidition">
+<div><select name="where"></select><select name="method"></select><input name="value">
+<input type="checkbox" name="inv">
+<span name="invtag">Invert result (true↔false)</span>
+<img src="images/delete.png">
+<img src="images/add.png">
+</div>
+</div>
+<p>
+<button id="btnAddARCond" class="btn_with_img">
+<img src="images/add.png">
+<span tid="add_condition">add_condition 4 this </span></button>
+</p>
+</div>
+</div>
+<div id="presets">
+<textarea id="preset_data" spellcheck="false"></textarea>
+<p><button id="btnDelHeader" class="btn_with_img">
+<img src="images/recycle.png">
+<span tid="delete_this_header">Delete this header</span></button></p>
+<datalist id="headervaluedata">
+</datalist>
+</div>
+</div>
+<div id="cfg_cover">
+<img src="images/guide-arrow1.png" align="left">
+<img src="images/guide-arrow2.png" align="right">
+<h2><span tid="GetStarted">Get Started</span></h2>
+<p><span tid="GetStarted1">Get Started</span></p>
+<p><span tid="GetStarted2">Get Started</span></p>
+</div>
+</td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

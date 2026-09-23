@@ -1,0 +1,29 @@
+{
+  "background": {
+    "persistent": true,
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "browser_action": {
+    "default_icon": "logo.png",
+    "default_popup": "popup.html"
+  },
+  "default_locale": "en",
+  "description": "__MSG_extDesc__",
+  "icons": {
+    "128": "logo.png"
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAovsgHy4UKFd8J9eTeBJRQoc+bqxaMkmNIJqGmZs29LUp1ozD3uu4AVTWPqymaBV6Zfe63Avw7km5bOUJ0JLWphl3I8HFfW81Ot+IpKNL7kQlAs+4qmYiklPTnLloZWGXmXxvnc/sX9idso0KzHp8/knALLrWfm7ipb/LNHvbKp7GwFNX3LJGqVoB/W+rpXEzaCm3llkDbD3aiuGAkPnCI4PzQQxV8mz/REiwwHT6DLufwBZE5jvDLcwu2jkPOPNOmcChyGKb76xfZtZ/Vo8WOtjLm2SH82WXTebovDRNFwiX4bj3vYGfKd74tVz8Jg1dQ/iaUb9GwludwD1QgKDOHQIDAQAB",
+  "manifest_version": 2,
+  "name": "__MSG_extName__",
+  "options_page": "config.html",
+  "permissions": [
+    "http://*/*",
+    "https://*/*",
+    "webRequest",
+    "webRequestBlocking",
+    "storage"
+  ],
+  "version": "1.0.0.8"
+}

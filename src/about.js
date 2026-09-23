@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){$("ver").innerHTML=chrome.runtime.getManifest().version});

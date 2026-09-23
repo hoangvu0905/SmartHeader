@@ -1,0 +1,237 @@
+{
+   "ARGuide1": {
+      "message": "修改该请求头的值为 ..."
+   },
+   "ARGuide2": {
+      "message": "... 当同时满足下列全部条件时 ..."
+   },
+   "ARSortWarning": {
+      "message": "此功能将会影响到自动规则的优先级次序。继续？"
+   },
+   "AboutPage": {
+      "message": "关于 \"Smart Header\""
+   },
+   "Add": {
+      "message": "添加"
+   },
+   "AddAutoRule": {
+      "message": "新建自动规则"
+   },
+   "Author": {
+      "message": "作者"
+   },
+   "AuthorBlog": {
+      "message": "博客"
+   },
+   "AutoRule": {
+      "message": "自动规则"
+   },
+   "Automatic": {
+      "message": "自动"
+   },
+   "Blank": {
+      "message": "空白"
+   },
+   "Block": {
+      "message": "中断请求"
+   },
+   "BrowserDefault": {
+      "message": "浏览器默认值"
+   },
+   "Config": {
+      "message": "配置"
+   },
+   "ConfigPage": {
+      "message": "配置中心"
+   },
+   "Delete": {
+      "message": "删除"
+   },
+   "GetStarted": {
+      "message": "启程"
+   },
+   "GetStarted1": {
+      "message": "在左侧选择一个请求头以编辑它的自动规则和可选预设值。"
+   },
+   "GetStarted2": {
+      "message": "或者试一试右上角的那些其他玩意儿…"
+   },
+   "InputValue": {
+      "message": "手动输入"
+   },
+   "PresetValues": {
+      "message": "预设值 & 其他"
+   },
+   "Remove": {
+      "message": "删除"
+   },
+   "Save": {
+      "message": "保存"
+   },
+   "Sort": {
+      "message": "排序"
+   },
+   "SpecialThanks": {
+      "message": "特别感谢"
+   },
+   "Value": {
+      "message": "值"
+   },
+   "a_feedback": {
+      "message": "反馈"
+   },
+   "a_onlinehelp": {
+      "message": "说明书"
+   },
+   "a_rate": {
+      "message": "评分"
+   },
+   "a_test": {
+      "message": "测试"
+   },
+   "add_condition": {
+      "message": "添加一个条件"
+   },
+   "ar_test_title": {
+      "message": "自动规则的一个例子：试试[帮助»在线测试]吧"
+   },
+   "c_back2head": {
+      "message": "返回"
+   },
+   "c_cloud_msg": {
+      "message": "注意：你现在看到的这些选项只保存在本地！"
+   },
+   "c_cloudstorage": {
+      "message": "使用 Chrome Sync 同步请求头配置"
+   },
+   "c_datastorage": {
+      "message": "数据存储"
+   },
+   "c_exporter": {
+      "message": "Master Mode"
+   },
+   "c_exporter_msg": {
+      "message": "导入、导出和追加配置。"
+   },
+   "c_factoryreset": {
+      "message": "恢复出厂设置 (本地&amp;云端)"
+   },
+   "c_factoryreset_msg": {
+      "message": "这将清空所有数据。继续？"
+   },
+   "c_keepvalue": {
+      "message": "即使退出 Chrome 也保持每一个请求头的值"
+   },
+   "c_save": {
+      "message": "应用"
+   },
+   "c_wipecloud": {
+      "message": "擦除云端数据"
+   },
+   "c_wipecloud_msg": {
+      "message": "这将请求 Chrome 清除 Sync 上的数据。继续？"
+   },
+   "cfgHelp": {
+      "message": "帮助"
+   },
+   "cfgOptions": {
+      "message": "选项"
+   },
+   "cfgUtils": {
+      "message": "小工具"
+   },
+   "condNumExplain": {
+      "message": "\u003Cdiv class=condNumExplain>此编号用于\u003Ca target='_blank' href='http://note.laobubu.net/archives/chrome-smart-header-manual/#armv'>魔法变量 &raquo;\u003C/a>\u003C/div>"
+   },
+   "confirmDiscardData": {
+      "message": "不点击 [保存] 按钮就关闭有可能导致改动的内容丢失。"
+   },
+   "delete_this_header": {
+      "message": "删除该请求头"
+   },
+   "delete_this_rule": {
+      "message": "删除该自动规则"
+   },
+   "extDesc": {
+      "message": "轻松修改 HTTP 请求头"
+   },
+   "extName": {
+      "description": "Extension name",
+      "message": "Smart Header"
+   },
+   "headers_avaliable": {
+      "message": "请求头"
+   },
+   "i18n_required": {
+      "message": "可能仅有英文版"
+   },
+   "inputHeaderName": {
+      "message": "这个新请求头名字是啥"
+   },
+   "invtag": {
+      "message": "NOT"
+   },
+   "m_equal": {
+      "message": "等于"
+   },
+   "m_equal_ci": {
+      "message": "等于(不分大小写)"
+   },
+   "m_include": {
+      "message": "含有"
+   },
+   "m_include_ci": {
+      "message": "含有(不分大小写)"
+   },
+   "m_regex": {
+      "message": "正则匹配"
+   },
+   "m_regex_ci": {
+      "message": "正则匹配(不分大小写)"
+   },
+   "noticeDuplicate": {
+      "message": "发现重复的请求头！"
+   },
+   "noticeInvalid": {
+      "message": "无效输入。"
+   },
+   "noticeSave": {
+      "message": "记得按[保存]按钮哦 →"
+   },
+   "noticeSaveFailed": {
+      "message": "无法保存。请稍后再试。"
+   },
+   "noticeSaved": {
+      "message": "已保存更改。"
+   },
+   "st_donator": {
+      "message": "慷慨解囊支持开发的：周华祥、张浩源。 \u003Ca href='http://laobubu.net/donate.html?ref=smartheader'>赏点饭钱&raquo;\u003C/a>"
+   },
+   "st_icon": {
+      "message": "部分图标取自 \u003Ca href=\"http://linhpham.me/miu/\">http://linhpham.me/miu/\u003C/a>"
+   },
+   "st_tester": {
+      "message": "Amanda（来自California）, Andreas Brunsmann, \u003Ca href=\"http://twitter.com/owocat\">@OwOCat\u003C/a>, \u003Ca href=\"http://1a23.com\">blueset\u003C/a>, Jason Trahan, AbiusX, ca_huy, David Tan, Ryan McGinty, Lagoon Wish, \u003Ca href=\"http://weibo.com/u/2219368650\">@小龅牙的我\u003C/a>, skotak29, popokcn, 飛影‧忌子, 您 以及每一位用户! :)"
+   },
+   "util_ci": {
+      "message": "ignoreCase"
+   },
+   "util_hide": {
+      "message": "隐藏小工具"
+   },
+   "util_regex": {
+      "message": "RegExp"
+   },
+   "w_method": {
+      "message": "HTTP方法"
+   },
+   "w_referer": {
+      "message": "Referer"
+   },
+   "w_type": {
+      "message": "请求类型"
+   },
+   "w_url": {
+      "message": "URL"
+   }
+}
