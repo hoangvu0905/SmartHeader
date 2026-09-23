@@ -20,9 +20,6 @@
    "Author": {
       "message": "作者"
    },
-   "AuthorBlog": {
-      "message": "博客"
-   },
    "AutoRule": {
       "message": "自动规则"
    },
@@ -71,9 +68,6 @@
    "Sort": {
       "message": "排序"
    },
-   "SpecialThanks": {
-      "message": "特别感谢"
-   },
    "Value": {
       "message": "值"
    },
@@ -83,17 +77,11 @@
    "a_onlinehelp": {
       "message": "说明书"
    },
-   "a_rate": {
-      "message": "评分"
-   },
-   "a_test": {
-      "message": "测试"
-   },
    "add_condition": {
       "message": "添加一个条件"
    },
    "ar_test_title": {
-      "message": "自动规则的一个例子：试试[帮助»在线测试]吧"
+      "message": "自动规则的一个例子"
    },
    "c_back2head": {
       "message": "返回"
@@ -141,7 +129,7 @@
       "message": "小工具"
    },
    "condNumExplain": {
-      "message": "\u003Cdiv class=condNumExplain>此编号用于\u003Ca target='_blank' href='http://note.laobubu.net/archives/chrome-smart-header-manual/#armv'>魔法变量 &raquo;\u003C/a>\u003C/div>"
+      "message": "<div class=condNumExplain>此编号用于<a target='_blank' href='https://github.com/hoangvu0905/SmartHeader#magic-variables'>魔法变量 &raquo;</a></div>"
    },
    "confirmDiscardData": {
       "message": "不点击 [保存] 按钮就关闭有可能导致改动的内容丢失。"
@@ -161,9 +149,6 @@
    },
    "headers_avaliable": {
       "message": "请求头"
-   },
-   "i18n_required": {
-      "message": "可能仅有英文版"
    },
    "inputHeaderName": {
       "message": "这个新请求头名字是啥"
@@ -203,15 +188,6 @@
    },
    "noticeSaved": {
       "message": "已保存更改。"
-   },
-   "st_donator": {
-      "message": "慷慨解囊支持开发的：周华祥、张浩源。 \u003Ca href='http://laobubu.net/donate.html?ref=smartheader'>赏点饭钱&raquo;\u003C/a>"
-   },
-   "st_icon": {
-      "message": "部分图标取自 \u003Ca href=\"http://linhpham.me/miu/\">http://linhpham.me/miu/\u003C/a>"
-   },
-   "st_tester": {
-      "message": "Amanda（来自California）, Andreas Brunsmann, \u003Ca href=\"http://twitter.com/owocat\">@OwOCat\u003C/a>, \u003Ca href=\"http://1a23.com\">blueset\u003C/a>, Jason Trahan, AbiusX, ca_huy, David Tan, Ryan McGinty, Lagoon Wish, \u003Ca href=\"http://weibo.com/u/2219368650\">@小龅牙的我\u003C/a>, skotak29, popokcn, 飛影‧忌子, 您 以及每一位用户! :)"
    },
    "util_ci": {
       "message": "ignoreCase"

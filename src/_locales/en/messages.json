@@ -20,9 +20,6 @@
    "Author": {
       "message": "Author"
    },
-   "AuthorBlog": {
-      "message": "Author Blog"
-   },
    "AutoRule": {
       "message": "Automatic Rules"
    },
@@ -71,9 +68,6 @@
    "Sort": {
       "message": "Sort"
    },
-   "SpecialThanks": {
-      "message": "Special Thanks"
-   },
    "Value": {
       "message": "Value"
    },
@@ -83,17 +77,11 @@
    "a_onlinehelp": {
       "message": "Manual"
    },
-   "a_rate": {
-      "message": "Rate"
-   },
-   "a_test": {
-      "message": "Test"
-   },
    "add_condition": {
       "message": "Add one condition"
    },
    "ar_test_title": {
-      "message": "AutoRule Example: Works on [Help»Test]"
+      "message": "AutoRule Example"
    },
    "c_back2head": {
       "message": "Back"
@@ -141,7 +129,7 @@
       "message": "Utils"
    },
    "condNumExplain": {
-      "message": "\u003Cdiv class=condNumExplain>Designed for \u003Ca target='_blank' href='http://note.laobubu.net/archives/chrome-smart-header-manual/#armv'>magic variables &raquo;\u003C/a>\u003C/div>"
+      "message": "<div class=condNumExplain>Designed for <a target='_blank' href='https://github.com/hoangvu0905/SmartHeader#magic-variables'>magic variables &raquo;</a></div>"
    },
    "confirmDiscardData": {
       "message": "Closing before clicking [Save] button might lose your new configuration."
@@ -161,9 +149,6 @@
    },
    "headers_avaliable": {
       "message": "Headers"
-   },
-   "i18n_required": {
-      "message": ""
    },
    "inputHeaderName": {
       "message": "Input the name of new header"
@@ -203,15 +188,6 @@
    },
    "noticeSaved": {
       "message": "Changes are saved."
-   },
-   "st_donator": {
-      "message": "Donor: Zhou Huaxiang, Zhang Haoyuan. \u003Ca href='http://laobubu.net/donate.html?ref=smartheader'>Buy me a coffee&raquo;\u003C/a>"
-   },
-   "st_icon": {
-      "message": "The web button icons by \u003Ca href=\"http://linhpham.me/miu/\">http://linhpham.me/miu/\u003C/a>"
-   },
-   "st_tester": {
-      "message": "Amanda from California, Andreas Brunsmann, \u003Ca href=\"http://twitter.com/owocat\">@OwOCat\u003C/a>, \u003Ca href=\"http://1a23.com\">blueset\u003C/a>, Jason Trahan, AbiusX, ca_huy, David Tan, Ryan McGinty, Lagoon Wish, \u003Ca href=\"http://weibo.com/u/2219368650\">@小龅牙的我\u003C/a>, skotak29, popokcn, YuiMitsuki, YOU and EVERY USERS! :)"
    },
    "util_ci": {
       "message": "ignoreCase"

@@ -26,7 +26,8 @@ test('install seeds the default headers, applies their auto rules and opens the 
   assert.deepEqual(config, { sync: true, keepvalue: false });
 
   const [rule] = await rules();
-  assert.equal(rule.condition.regexFilter, 'laobubu\\.net.*smartheader|smartheader.*laobubu\\.net');
+  assert.equal(rule.condition.urlFilter, 'github.com/hoangvu0905/smartheader');
+  assert.equal(rule.condition.isUrlFilterCaseSensitive, false);
   assert.equal(rule.action.requestHeaders[0].value, 'Mozilla/5.0 (compatible; SmartHeader/2.0.0)');
   assert.deepEqual(chrome.tabs.created, [{ url: 'chrome-extension://smart-header/about.html' }]);
   assert.ok(chrome.storage.sync.data.headers);

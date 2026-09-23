@@ -26,10 +26,7 @@ export const createDefaultHeaders = () => [
         name: chrome.i18n.getMessage('ar_test_title'),
         desc: 'Just a test',
         value: `Mozilla/5.0 (compatible; SmartHeader/${chrome.runtime.getManifest().version})`,
-        condition: [
-          { inv: false, method: 'include_ci', value: 'laobubu.net', where: 'url' },
-          { inv: false, method: 'include_ci', value: 'smartheader', where: 'url' },
-        ],
+        condition: [{ inv: false, method: 'include_ci', value: 'github.com/hoangvu0905/smartheader', where: 'url' }],
       },
     ],
   },

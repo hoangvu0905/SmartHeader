@@ -2,6 +2,9 @@
   "name": "smart-header",
   "version": "2.0.0",
   "private": true,
+  "author": "Nguyễn Hoàng Vũ",
+  "homepage": "https://github.com/hoangvu0905/SmartHeader",
+  "repository": "github:hoangvu0905/SmartHeader",
   "type": "module",
   "scripts": {
     "test": "node --test test/*.test.js",

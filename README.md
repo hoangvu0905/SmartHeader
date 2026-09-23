@@ -1,8 +1,8 @@
 # SmartHeader
 
-Manifest V3 port of the Smart Header browser extension (1.0.0.8, by laobubu). It modifies HTTP request headers from a popup, with presets and automatic rules, and keeps the original UI, settings, locales and logo.
+Manifest V3 browser extension that modifies HTTP request headers from a popup, with presets and automatic rules.
 
-The original MV2 source is kept in the first commit of this repository for reference.
+Author: Nguyễn Hoàng Vũ - https://github.com/hoangvu0905/SmartHeader
 
 ## Layout
 
@@ -29,6 +29,19 @@ Requires Node.js 22 or later, no dependencies.
 npm test          # run all tests
 npm run package   # zip src/ at HEAD into dist/smart-header-<version>.zip for the store
 ```
+
+## Magic variables
+
+Values of presets, manual values and auto rules can contain these variables:
+
+| Variable | Result |
+| --- | --- |
+| `{date:format}` | Current date and time. `yyyy` year, `MM` month, `dd` day, `hh` hour, `mm` minute, `ss` second, `q` quarter, `S` millisecond |
+| `{rand:min-max}` | Random integer between `min` and `max` |
+| `{result:i:j}` | Group `j` of the RegExp match of condition number `i` in the same auto rule (not supported in MV3) |
+| `{url}`, `{scheme}`, `{host}`, `{port}`, `{uri}`, `{path}`, `{query}` | Parts of the request URL (not supported in MV3) |
+
+The condition number is shown when hovering a condition in the configuration page.
 
 ## Differences from the MV2 version
 

@@ -98,10 +98,10 @@ test('single url conditions map to url filters or regex filters', () => {
 
 test('several include conditions are merged into one regex', () => {
   const headers = [
-    header('UA', [rule('v', [cond('url', 'include_ci', 'laobubu.net'), cond('url', 'include_ci', 'SmartHeader')])]),
+    header('UA', [rule('v', [cond('url', 'include_ci', 'example.com'), cond('url', 'include_ci', 'SmartHeader')])]),
   ];
   const { condition } = compileRules(headers).rules[0];
-  assert.equal(condition.regexFilter, 'laobubu\\.net.*smartheader|smartheader.*laobubu\\.net');
+  assert.equal(condition.regexFilter, 'example\\.com.*smartheader|smartheader.*example\\.com');
   assert.equal(condition.isUrlFilterCaseSensitive, false);
 });
 
