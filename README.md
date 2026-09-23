@@ -30,6 +30,20 @@ npm test          # run all tests
 npm run package   # zip src/ at HEAD into dist/smart-header-<version>.zip for the store
 ```
 
+## Release
+
+The `Build` GitHub Action runs the tests and uploads the store zip as an artifact on every push and pull request. To publish a release:
+
+1. Bump `version` in `src/manifest.json` (and `package.json`) and commit.
+2. Tag the commit with the same version and push the tag:
+
+   ```sh
+   git tag v2.0.0
+   git push origin v2.0.0
+   ```
+
+3. The action checks that the tag matches the manifest version, then creates a GitHub release with `smart-header-<version>.zip` attached, ready to upload to the Chrome Web Store or Edge Add-ons.
+
 ## Magic variables
 
 Values of presets, manual values and auto rules can contain these variables:
