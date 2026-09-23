@@ -1,1 +1,5 @@
-document.addEventListener("DOMContentLoaded",function(){$("ver").innerHTML=chrome.runtime.getManifest().version});
+import { $ } from './uniscript.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+  $('ver').textContent = chrome.runtime.getManifest().version;
+});

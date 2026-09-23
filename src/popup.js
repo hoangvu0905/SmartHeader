@@ -1,1 +1,62 @@
-function onPullHeaders(e){poptbody.innerHTML="";for(var a in e.data)addHeader(a,e.data[a].preset,e.data[a].value),currentValues[a]=e.data[a].value}function addHeader(e,a,t){for(var n=document.createElement("tr"),d="s_"+e.replace(/[^a-zA-Z0-9]/g,"_");null!=$(d);)d+="_";n.innerHTML="<th>"+e+'</th><td><select id="'+d+'"></select><img alt="'+uniTranslate("InputValue")+'" title="'+uniTranslate("InputValue")+'" src="images/pen.png" class="edtbtn" id="e'+d+'"></td>',poptbody.appendChild(n);var l=extendSelect($(d));l.setAttribute("http_header",e);for(var r=0;r<var_def.length;r++)l.addItem(var_def[r].name,var_def[r].value).className="opt_sys";for(var r=0;r<a.length;r++)l.addItem(a[r].name,a[r].value);for(var r=0;r<var_def_end.length;r++)l.addItem(var_def_end[r].name,var_def_end[r].value).className="opt_sys";t&&-1==l.findAndSelect(t)&&(l.addItem(t,t).selected=!0);var u=$("e"+d);l.addEventListener("change",lClick,!1),u.addEventListener("click",ledtClick,!1)}function lClick(){updateHeader(this.getAttribute("http_header"),this.value)}function ledtClick(){var e=extendSelect($(this.id.substr(1))),a=prompt(uniTranslate("InputValue"),e.value);null!=a&&-1==e.findAndSelect(a)&&(e.addItem(a,a).selected=!0),updateHeader(e.getAttribute("http_header"),e.value)}function updateHeader(e,a){currentValues[e]!=a&&(currentValues[e]=a,chrome.runtime.sendMessage({method:"change",which:e,value:a},updateCallback))}function updateCallback(e){uniAnimation($("s_"+e.which.replace(/[^a-zA-Z0-9]/g,"_")),e.result?"ani_success":"ani_fail")}document.addEventListener("DOMContentLoaded",function(){poptbody=$("poptbody"),chrome.runtime.sendMessage({method:"pull",source:"popup"},onPullHeaders)});var var_def=[{name:uniTranslate("Automatic"),value:"@AUTO"},{name:uniTranslate("BrowserDefault"),value:"@DEFAULT"}],var_def_end=[{name:uniTranslate("Remove"),value:"@DELETE"},{name:uniTranslate("Blank"),value:"@BLANK"}],poptbody,currentValues={};
+import { $, addOption, animate, selectOption, sendMessage, translate } from './uniscript.js';
+
+const leadingValues = [
+  { name: translate('Automatic'), value: '@AUTO' },
+  { name: translate('BrowserDefault'), value: '@DEFAULT' },
+];
+
+const trailingValues = [
+  { name: translate('Remove'), value: '@DELETE' },
+  { name: translate('Blank'), value: '@BLANK' },
+];
+
+const currentValues = {};
+const selects = new Map();
+
+async function updateHeader(header, value) {
+  if (currentValues[header] === value) return;
+  currentValues[header] = value;
+  const response = await sendMessage({ method: 'change', which: header, value });
+  animate(selects.get(header), response?.result ? 'ani_success' : 'ani_fail');
+}
+
+function addSystemOptions(select, values) {
+  for (const { name, value } of values) addOption(select, name, value).className = 'opt_sys';
+}
+
+function addHeader(header, presets, value) {
+  const row = document.createElement('tr');
+  const title = document.createElement('th');
+  const cell = document.createElement('td');
+  const select = document.createElement('select');
+  const editButton = document.createElement('img');
+
+  title.textContent = header;
+  Object.assign(editButton, { alt: translate('InputValue'), title: translate('InputValue'), src: 'images/pen.png' });
+  editButton.className = 'edtbtn';
+  cell.append(select, editButton);
+  row.append(title, cell);
+  $('poptbody').append(row);
+  selects.set(header, select);
+
+  addSystemOptions(select, leadingValues);
+  for (const preset of presets) addOption(select, preset.name, preset.value);
+  addSystemOptions(select, trailingValues);
+  if (value && selectOption(select, value) === -1) addOption(select, value, value).selected = true;
+
+  select.addEventListener('change', () => updateHeader(header, select.value));
+  editButton.addEventListener('click', () => {
+    const input = prompt(translate('InputValue'), select.value);
+    if (input !== null && selectOption(select, input) === -1) addOption(select, input, input).selected = true;
+    updateHeader(header, select.value);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const { data } = await sendMessage({ method: 'pull', source: 'popup' });
+  $('poptbody').innerHTML = '';
+  for (const [header, { preset, value }] of Object.entries(data)) {
+    addHeader(header, preset, value);
+    currentValues[header] = value;
+  }
+});

@@ -1,1 +1,85 @@
-function $(e){return document.getElementById(e)}function extendSelect(e){var t=e;return t.addItem=function(e,t){var i=new Option(e,t);return this.options[this.options.length]=i,i},t.removeItem=function(e){this.options.remove(e)},t.clear=function(){for(;this.options.length;)this.removeItem(0)},t.findItem=function(e){for(var t=0;t<this.options.length;t++)if(this.options[t].value==e)return t;return-1},t.findAndSelect=function(e){var t=this.findItem(e);return t>=0&&(this.options[t].selected=!0),t},t}function uniTranslate(e){return chrome.i18n.getMessage(e)||e}function uniTranslateAll(){document.title=uniTranslate(document.title);var e=[];e=document.getElementsByTagName("span");for(var t=0;t<e.length;t++)e[t].hasAttribute("tid")&&(e[t].innerHTML=uniTranslate(e[t].getAttribute("tid")));e=document.getElementsByTagName("input");for(var t=0;t<e.length;t++)e[t].hasAttribute("tid_v")&&(e[t].value=uniTranslate(e[t].getAttribute("tid_v"))),e[t].hasAttribute("tid_p")&&(e[t].placeholder=uniTranslate(e[t].getAttribute("tid_p")))}function uniAnimation(e,t){for(var i=0;i<e.classList.length;i++)0==e.classList[i].indexOf("ani_")&&e.classList.remove(e.classList[i--]);setTimeout(function(){e.classList.add(t)},50)}function uniTabify(e){for(var t={list:e,current:0,update:function(){for(var e=0;e<this.list.length;e++)e==this.current?(this.list[e].tab.classList.add("current"),this.list[e].content.style.display="inherit"):(this.list[e].tab.classList.remove("current"),this.list[e].content.style.display="none")},click:function(e){this.current=e,this.update()}},i=0;i<e.length;i++)e[i].tab.setAttribute("unitabindex",i),e[i].tab.addEventListener("click",function(){t.click(this.getAttribute("unitabindex"))},!1);return t.update(),t}function uniAlert(e){unicute_messager||(unicute_messager=document.createElement("div"),unicute_messager.id="unicute_messager",unicute_messager.addEventListener("click",uniAlertDismiss,!1),unicute_messager.addEventListener("mouseover",function(){clearTimeout(unicute_messager_timer)},!1),document.body.appendChild(unicute_messager)),clearTimeout(unicute_messager_timer),unicute_messager.innerHTML+="<p>"+e+"</p>",unicute_messager.style.top="0px",unicute_messager.style.height="auto",unicute_messager.style.width="auto",unicute_messager_timer=setTimeout(uniAlertDismiss,3e3+80*e.length),unicute_messager.style.height=unicute_messager.offsetHeight+"px",unicute_messager.style.width=unicute_messager.offsetWidth+"px"}function uniAlertDismiss(){clearTimeout(unicute_messager_timer),unicute_messager.style.top="-2em",unicute_messager.style.height="1px",unicute_messager.style.width="1px",unicute_messager_timer=0,unicute_messager.innerHTML=""}function uniFindItemIndexBy(e,t,i){var n=-1;return e.every(function(e,s){return e[t]==i?(n=s,!1):!0}),n}window.addEventListener("load",uniTranslateAll);var unicute_messager=null,unicute_messager_timer=0;
+export const $ = (id) => document.getElementById(id);
+
+export const translate = (key) => chrome.i18n.getMessage(key) || key;
+
+export const sendMessage = (message) => chrome.runtime.sendMessage(message);
+
+export function addOption(select, text, value) {
+  const option = new Option(text, value);
+  select.add(option);
+  return option;
+}
+
+export const findOption = (select, value) => [...select.options].findIndex((option) => option.value == value);
+
+export function selectOption(select, value) {
+  const index = findOption(select, value);
+  if (index >= 0) select.options[index].selected = true;
+  return index;
+}
+
+export function translateAll() {
+  document.title = translate(document.title);
+  for (const span of document.querySelectorAll('span[tid]')) span.innerHTML = translate(span.getAttribute('tid'));
+  for (const input of document.querySelectorAll('input[tid_v]')) input.value = translate(input.getAttribute('tid_v'));
+  for (const input of document.querySelectorAll('input[tid_p]')) {
+    input.placeholder = translate(input.getAttribute('tid_p'));
+  }
+}
+
+export function animate(element, className) {
+  for (const name of [...element.classList]) {
+    if (name.startsWith('ani_')) element.classList.remove(name);
+  }
+  setTimeout(() => element.classList.add(className), 50);
+}
+
+export class Tabs {
+  constructor(list) {
+    this.list = list;
+    this.current = 0;
+    list.forEach(({ tab }, index) => tab.addEventListener('click', () => this.click(index)));
+    this.update();
+  }
+
+  update() {
+    this.list.forEach(({ tab, content }, index) => {
+      const active = index === this.current;
+      tab.classList.toggle('current', active);
+      content.style.display = active ? 'inherit' : 'none';
+    });
+  }
+
+  click(index) {
+    this.current = index;
+    this.update();
+  }
+}
+
+let messager = null;
+let messagerTimer = 0;
+
+function dismissAlert() {
+  clearTimeout(messagerTimer);
+  Object.assign(messager.style, { top: '-2em', height: '1px', width: '1px' });
+  messagerTimer = 0;
+  messager.innerHTML = '';
+}
+
+export function showAlert(message) {
+  if (!messager) {
+    messager = document.createElement('div');
+    messager.id = 'unicute_messager';
+    messager.addEventListener('click', dismissAlert);
+    messager.addEventListener('mouseover', () => clearTimeout(messagerTimer));
+    document.body.append(messager);
+  }
+  clearTimeout(messagerTimer);
+  messager.innerHTML += `<p>${message}</p>`;
+  Object.assign(messager.style, { top: '0px', height: 'auto', width: 'auto' });
+  messagerTimer = setTimeout(dismissAlert, 3000 + 80 * message.length);
+  messager.style.height = `${messager.offsetHeight}px`;
+  messager.style.width = `${messager.offsetWidth}px`;
+}
+
+window.addEventListener('load', translateAll);
